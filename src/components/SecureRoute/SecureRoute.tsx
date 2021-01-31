@@ -1,5 +1,5 @@
-import React, { PropsWithChildren, ReactNode } from 'react';
-import { Route, Redirect, RouteProps } from 'react-router';
+import React, { PropsWithChildren } from 'react';
+import { Route, Redirect, RouteProps } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
 
 const SecureRoute = ({ children, ...props }: PropsWithChildren<RouteProps>) => {

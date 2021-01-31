@@ -1,12 +1,12 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import ResetPassword from '../ResetPassword/ResetPassword';
 
 const AuthRouter = () => {
-  const { modules, options, getModulePath } = useAuth();
+  const { modules, getModulePath } = useAuth();
 
   const getComponent = (name: string) => {
     switch (name) {

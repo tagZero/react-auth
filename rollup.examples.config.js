@@ -17,34 +17,36 @@ const template = `
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="color-scheme" content="dark light">
-    <title>AuthProvider Test</title>
+    <title>ReactAuth Test</title>
   </head>
   <body>
     <div id="root"></div>
     
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-router-dom/umd/react-router-dom.min.js"></script>
     <script src="example.js"></script>
   </body>
 </html>
 `;
 
 export default {
-  input: './src/example/example.tsx',
+  input: './src/examples/Example.tsx',
   output: {
     dir: 'dist',
-    name: 'AuthProvider',
+    name: 'ReactAuth',
     sourcemap: true,
     format: 'umd',
     globals: {
       'react': 'React',
       'react-dom': 'ReactDOM',
+      'react-router-dom': 'ReactRouterDOM'
     },
   },
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom', 'react-router-dom'],
   plugins: [
     replace({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE)
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     postcss({
       extract: false,
@@ -53,14 +55,14 @@ export default {
     ts(),
     commonjs(),
     resolve({
-      browser: true,
+      browser: true
     }),
     html({
       template: () => template
     }),
     copy({
       targets: [
-        { src: 'public/*', dest: 'dist' }
+        { src: 'assets/*', dest: 'dist/assets/' }
       ]
     })
   ]

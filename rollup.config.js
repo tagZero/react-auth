@@ -5,6 +5,7 @@ import postcss from 'rollup-plugin-postcss';
 import { terser } from "rollup-plugin-terser";
 import ts from "@wessberg/rollup-plugin-ts";
 import filesize from 'rollup-plugin-filesize';
+import copy from 'rollup-plugin-copy';
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -13,7 +14,6 @@ const output = {
   globals: {
     'react': 'React',
     'react-dom': 'ReactDOM',
-    'react-router': 'ReactRouter',
     'react-router-dom': 'ReactRouterDOM',
   },
 }
@@ -23,22 +23,22 @@ export default {
   output: [
     {
       ...output,
-      file: 'dist/cjs/index.js',
+      file: production ? 'dist/cjs/react-auth.min.js' : 'dist/cjs/react-auth.js',
       format: 'cjs'
     },
     {
       ...output,
-      file: 'dist/es/index.js',
+      file: production ? 'dist/es/react-auth.min.js' : 'dist/es/react-auth.js',
       format: 'es'
     },
     {
       ...output,
-      file: 'dist/umd/index.js',
+      file: production ? 'dist/umd/react-auth.min.js' : 'dist/umd/react-auth.js',
       format: 'umd',
-      name: 'AuthProvider'
+      name: 'ReactAuth'
     }
   ],
-  external: ['react', 'react-dom', 'react-router', 'react-router-dom'],
+  external: ['react', 'react-dom', 'react-router-dom'],
   plugins: [
     replace({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
@@ -53,6 +53,11 @@ export default {
       browser: true
     }),
     production ? terser() : null,
-    filesize()
+    filesize(),
+    copy({
+      targets: [
+        { src: 'assets/*', dest: 'dist/assets/' }
+      ]
+    })
   ]
 };

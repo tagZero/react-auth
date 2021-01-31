@@ -4,9 +4,11 @@
 
 Customizable AuthProvider/AuthService and UI components for your react projects.
 
-There are 3 components with light/dark themes. You can see `Login` component below. Others are similar to `Login`
+This project is still in development.
+
+There are 3 components with light/dark themes. You can see `Login` component below. Others are similar to `Login`. HTML5 validations included (email, required).
 - Login
-- Register
+- Register: Currently provides 4 fields firstName, lastName, email, password. It will allow customization in the upcoming releases.
 - Reset Password
 
 ![ss-light] ![ss-dark]

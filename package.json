@@ -1,6 +1,6 @@
 {
   "name": "@tag0/react-auth",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Customizable AuthService/AuthProvider and components for react",
   "repository": {
     "type": "git",
@@ -16,10 +16,10 @@
     "auth-library",
     "react-auth"
   ],
-  "types": "dist/index.d.ts",
-  "main": "dist/cjs/index.js",
-  "module": "dist/es/index.js",
-  "browser": "dist/umd/index.js",
+  "types": "dist/react-auth.d.ts",
+  "main": "dist/cjs/react-auth.js",
+  "module": "dist/es/react-auth.js",
+  "browser": "dist/umd/react-auth.js",
   "license": "MIT",
   "files": [
     "dist",
@@ -30,12 +30,12 @@
   "scripts": {
     "clean": "rimraf dist",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
-    "test": "jest --config=jest.config.js",
+    "test": "jest --config=jest.config.js --passWithNoTests",
     "build": "yarn clean && NODE_ENV=development rollup -c rollup.config.js",
-    "build:prod": "yarn clean && NODE_ENV=production rollup -c rollup.config.js",
+    "build:prod": "yarn build && NODE_ENV=production rollup -c rollup.config.js",
     "build:example": "yarn clean && rollup -c rollup.examples.config.js",
     "start": "yarn build:example && serve -s dist",
-    "prepublishOnly": "yarn build",
+    "prepublishOnly": "yarn build:prod",
     "watch": "npm-watch"
   },
   "devDependencies": {
@@ -64,10 +64,6 @@
     "node-sass": "^5.0.0",
     "npm-watch": "^0.7.0",
     "prettier": "^2.2.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
     "react-test-renderer": "^17.0.1",
     "rollup": "^2.38.0",
     "rollup-plugin-copy": "^3.3.0",
@@ -82,7 +78,6 @@
   "peerDependencies": {
     "react": ">=16.x",
     "react-dom": ">=16.x",
-    "react-router": ">=5.x",
     "react-router-dom": ">=5.x"
   },
   "watch": {
