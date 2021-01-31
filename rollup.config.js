@@ -44,8 +44,7 @@ export default {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     postcss({
-      extract: false,
-      use: ['sass']
+      extract: false
     }),
     ts({ exclude: 'src/examples/*' }),
     commonjs(),

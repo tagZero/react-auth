@@ -4,6 +4,9 @@ import { useAuth } from '../AuthProvider/AuthProvider';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import ResetPassword from '../ResetPassword/ResetPassword';
+import '../../styles/reset.css';
+import '../../styles/font.css';
+import '../../styles/main.css';
 
 const AuthRouter = () => {
   const { modules, getModulePath } = useAuth();
