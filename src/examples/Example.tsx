@@ -7,7 +7,7 @@ import { AuthRouter, AuthService, AuthProvider, SecureRoute } from '../';
 const authService = new AuthService({
   options: {
     pathPrefix: '/auth',
-    logoUrl: '/assets/images/logo.svg',
+    logoUrl: 'https://unpkg.com/@tag0/react-auth/dist/assets/images/logo.svg',
     logoTitle: 'ReactAuth'
   }
 });

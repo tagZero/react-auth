@@ -15,29 +15,35 @@ class AuthServiceClass implements AuthServiceType {
     }
 
     this.options = {
-      pathPrefix: props?.options.pathPrefix || '/auth',
-      ...props?.options
+      ...props?.options,
+      pathPrefix: props?.options.pathPrefix || '/auth'
     };
     this.modules = {
+      ...props?.modules,
       login: {
         path: '/login',
         title: 'Login',
         text: 'I have an account',
-        description: 'Please provide your credentials below to login.'
+        description: 'Please provide your credentials below to login.',
+        ...props?.modules?.login
       },
       register: {
         path: '/register',
         title: 'Register',
         text: 'Create new account',
-        description: 'Please provide information below to register a new user.'
+        description: 'Please provide information below to register a new user.',
+        passwordPattern: '(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%&*?])[A-Za-z\\d!@#$%&*?]{8,}',
+        passwordPatternMessage:
+          'Please enter min. 8 characters having at least 1 capital letter, 1 lowercase letter, 1 number and 1 special character (!@#$%&*?)',
+        ...props?.modules?.register
       },
       resetPassword: {
         path: '/reset-password',
         title: 'Reset password',
         text: 'Forgot password?',
-        description: 'Please provide your e-mail address to reset your password.'
-      },
-      ...props?.modules
+        description: 'Please provide your e-mail address to reset your password.',
+        ...props?.modules?.resetPassword
+      }
     };
   }
 

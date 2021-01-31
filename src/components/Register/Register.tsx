@@ -28,7 +28,15 @@ const Register = () => {
             <input type="email" name="email" id="email" placeholder="E-mail" required />
           </div>
           <div className="auth-form-row">
-            <input type="password" name="password" id="password" placeholder="Password" required />
+            <input
+              type="text"
+              name="password"
+              id="password"
+              placeholder="Password"
+              title={modules.register.passwordPatternMessage}
+              required
+              pattern={modules.register.passwordPattern}
+            />
           </div>
           <div className="auth-form-submit">
             <input type="submit" value="Submit" />
