@@ -1,9 +1,11 @@
 import { AuthServiceType } from './AuthService.type';
 
 class AuthServiceClass implements AuthServiceType {
-  authData: any = null;
-  modules: any = null;
-  options: any = null;
+  authData;
+  modules;
+  options;
+  setNotification;
+  setAuthData;
 
   constructor(props?: { options?: any; modules?: any }) {
     if (props?.options?.pathPrefix) {
@@ -54,8 +56,7 @@ class AuthServiceClass implements AuthServiceType {
     return this.options.pathPrefix + this.modules[module].path;
   };
 
-  resetPassword = ({ email }: { email: string }): Promise<any> => {
-    console.log({ email });
+  resetPassword = async ({ email }: { email: string }) => {
     return Promise.resolve();
   };
 
@@ -63,8 +64,8 @@ class AuthServiceClass implements AuthServiceType {
     return false;
   };
 
-  login = ({ email, password }: { email: string; password: string }): Promise<any> => {
-    console.log({ email, password });
+  login = async ({ email, password }: { email: string; password: string }) => {
+    this.setNotification({ type: 'success', message: 'Login success. Forwarding' });
     return Promise.resolve();
   };
 
@@ -72,8 +73,7 @@ class AuthServiceClass implements AuthServiceType {
     return Promise.resolve();
   };
 
-  register = ({ firstName, lastName, email, password }: any): Promise<any> => {
-    console.log({ firstName, lastName, email, password });
+  register = async ({ firstName, lastName, email, password }: any) => {
     return Promise.resolve();
   };
 }

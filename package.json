@@ -1,6 +1,6 @@
 {
   "name": "@tag0/react-auth",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "Customizable AuthService/AuthProvider and components for react",
   "repository": {
     "type": "git",
@@ -79,6 +79,9 @@
     "react": ">=16.x",
     "react-dom": ">=16.x",
     "react-router-dom": ">=5.x"
+  },
+  "dependencies": {
+    "react-toastify": "^7.0.3"
   },
   "watch": {
     "start": {

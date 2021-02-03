@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useState } from 'react';
-import { AuthServiceType } from '../AuthService/AuthService.type';
+import { AuthServiceType, NotificationState } from '../AuthService/AuthService.type';
 
 const AuthContext = createContext({} as AuthServiceType);
 export const useAuth = () => useContext(AuthContext);
 
 const AuthProvider: React.FC<{ service: AuthServiceType }> = ({ service, children }) => {
   const [authData, setAuthData] = useState();
+  const [notification, setNotification] = useState<NotificationState>();
 
   const {
     login,
@@ -18,6 +19,9 @@ const AuthProvider: React.FC<{ service: AuthServiceType }> = ({ service, childre
     getModulePath
   } = service;
 
+  service.setNotification = setNotification;
+  service.setAuthData = setAuthData;
+
   return (
     <AuthContext.Provider
       value={{
@@ -29,7 +33,8 @@ const AuthProvider: React.FC<{ service: AuthServiceType }> = ({ service, childre
         resetPassword,
         modules,
         options,
-        getModulePath
+        getModulePath,
+        notification
       }}
     >
       {children}

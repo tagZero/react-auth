@@ -14,10 +14,10 @@
   font-family: 'ProximaNova_Bold';
   src: url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Sbold-webfont.eot");
   src: url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Sbold-webfont.eot?#iefix") format("embedded-opentype"),
-       url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Sbold-webfont.woff2") format("woff2"),
-       url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Sbold-webfont.woff") format("woff"),
-       url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Sbold-webfont.ttf") format("truetype"),
-       url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Sbold-webfont.svg#proxima_nova_ltsemibold") format("svg");
+  url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Sbold-webfont.woff2") format("woff2"),
+  url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Sbold-webfont.woff") format("woff"),
+  url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Sbold-webfont.ttf") format("truetype"),
+  url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Sbold-webfont.svg#proxima_nova_ltsemibold") format("svg");
   font-weight: 700;
   font-style: normal
 }
@@ -26,16 +26,15 @@
   font-family: 'ProximaNova_Light';
   src: url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Light-webfont.eot");
   src: url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Light-webfont.eot?#iefix") format("embedded-opentype"),
-       url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Light-webfont.woff2") format("woff2"),
-       url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Light-webfont.woff") format("woff"),
-       url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Light-webfont.ttf") format("truetype"),
-       url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Light-webfont.svg#proxima_nova_ltlight") format("svg");
+  url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Light-webfont.woff2") format("woff2"),
+  url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Light-webfont.woff") format("woff"),
+  url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Light-webfont.ttf") format("truetype"),
+  url("https://unpkg.com/@tag0/react-auth/dist/assets/font/ProximaNova-Light-webfont.svg#proxima_nova_ltlight") format("svg");
   font-weight: 300;
   font-style: normal
 }
 
 body,input,select,textarea {
   font-family: "ProximaNova", "ProximaNova_Bold", "ProximaNova_Light", "Proxima Nova", "Helvetica Neue",
-    "Helvetica", "Segoe UI", "Nimbus Sans L", "Liberation Sans", "Open Sans", FreeSans, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  "Helvetica", "Segoe UI", "Nimbus Sans L", "Liberation Sans", "Open Sans", FreeSans, Arial, sans-serif;
 }

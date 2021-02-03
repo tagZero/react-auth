@@ -7,7 +7,7 @@ const Register = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const keys = ['firstName', 'lastName', 'email', 'password'];
+    const keys = ['firstName', 'lastName', 'birthDate', 'email', 'password'];
     const props = keys.reduce((obj, key) => ({ ...obj, [key]: event.target[key].value }), {});
     await register(props);
   };
@@ -21,15 +21,32 @@ const Register = () => {
         <p className="auth-form-description">{modules.register.description}</p>
         <form className="auth-form" onSubmit={onSubmit}>
           <div className="auth-form-row">
-            <input type="text" name="firstName" id="firstName" placeholder="First name" required />
-            <input type="text" name="lastName" id="lastName" placeholder="Last name" required />
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              placeholder="First name"
+              maxLength={30}
+              required
+            />
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              placeholder="Last name"
+              maxLength={30}
+              required
+            />
+          </div>
+          <div className="auth-form-row">
+            <input type="date" name="birthDate" id="birthDate" placeholder="Date of birth" required />
           </div>
           <div className="auth-form-row">
             <input type="email" name="email" id="email" placeholder="E-mail" required />
           </div>
           <div className="auth-form-row">
             <input
-              type="text"
+              type="password"
               name="password"
               id="password"
               placeholder="Password"
