@@ -42,8 +42,8 @@ const AuthRouter = () => {
           <div>
             <ToastContainer
               position="top-right"
-              autoClose={7000}
-              hideProgressBar={false}
+              autoClose={5000}
+              hideProgressBar={true}
               newestOnTop
               closeOnClick
               rtl={false}

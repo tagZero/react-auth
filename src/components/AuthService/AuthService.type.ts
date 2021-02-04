@@ -1,3 +1,5 @@
+import * as H from 'history';
+
 export type NotificationType = 'info' | 'warn' | 'error' | 'success';
 
 export interface AuthServiceType {
@@ -5,6 +7,7 @@ export interface AuthServiceType {
   modules: any;
   options: any;
   notification?: any;
+  history?: H.History;
   isAuthenticated: () => boolean;
   setNotification?: (props: NotificationState) => void;
   setAuthData?: (props: any) => any;

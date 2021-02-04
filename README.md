@@ -6,9 +6,9 @@ Customizable AuthProvider/AuthService and UI components for your react projects.
 
 This project is still in development.
 
-There are 3 components with light/dark themes. You can see `Login` component below. Others are similar to `Login`. HTML5 validations included (email, required).
+There are 3 components with light/dark themes. You can see `Login` component below. HTML5 validations are included (email, required, max length, strong password). Notifications are provided by React-Toastify
 - Login
-- Register: Currently provides 4 fields firstName, lastName, email, password. It will allow customization in the upcoming releases.
+- Register (Fields are `firstName, lastName, birthDate, email and password`. It will allow customization in the future.)
 - Reset Password
 
 ![ss-light] ![ss-dark]
@@ -35,4 +35,4 @@ yarn watch
 [license-href]: LICENSE.md
 [ss-light]: https://imagemarker.s3.eu-central-1.amazonaws.com/auth/light.png
 [ss-dark]: https://imagemarker.s3.eu-central-1.amazonaws.com/auth/dark.png
-[example project]: src/example/Example.tsx
+[example project]: src/examples/Example.tsx

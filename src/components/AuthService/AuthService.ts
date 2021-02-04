@@ -6,6 +6,7 @@ class AuthServiceClass implements AuthServiceType {
   options;
   setNotification;
   setAuthData;
+  history;
 
   constructor(props?: { options?: any; modules?: any }) {
     if (props?.options?.pathPrefix) {
@@ -65,7 +66,6 @@ class AuthServiceClass implements AuthServiceType {
   };
 
   login = async ({ email, password }: { email: string; password: string }) => {
-    this.setNotification({ type: 'success', message: 'Login success. Forwarding' });
     return Promise.resolve();
   };
 
