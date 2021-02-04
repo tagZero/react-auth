@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SecureRoute renders properly 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="Toastify"
+    />
+    <h1>
+      Home
+    </h1>
+  </div>
+</DocumentFragment>
+`;
