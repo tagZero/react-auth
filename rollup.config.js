@@ -55,7 +55,8 @@ export default {
     filesize(),
     copy({
       targets: [
-        { src: 'assets/*', dest: 'dist/assets/' }
+        { src: 'assets/*', dest: 'dist/assets/' },
+        { src: 'src/styles/*', dest: 'dist/assets/styles/' },
       ]
     })
   ]

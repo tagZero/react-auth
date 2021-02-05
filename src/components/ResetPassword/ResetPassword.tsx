@@ -12,9 +12,9 @@ const ResetPassword = () => {
   };
 
   return (
-    <main className="ae-container">
-      <div className="ae-logo" style={{ backgroundImage: `url(${options.logoUrl}` }} />
-      {options.logoTitle ? <div className="ae-title">{options.logoTitle}</div> : null}
+    <main className="auth-container">
+      <div className="auth-logo" style={{ backgroundImage: `url(${options.logoUrl}` }} />
+      {options.logoTitle ? <div className="auth-title">{options.logoTitle}</div> : null}
       <div className="auth-form-container tile">
         <div className="auth-form-title">{modules.resetPassword.title}</div>
         <p className="auth-form-description">{modules.resetPassword.description}</p>

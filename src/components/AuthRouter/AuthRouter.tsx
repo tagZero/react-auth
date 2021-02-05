@@ -6,8 +6,7 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import ResetPassword from '../ResetPassword/ResetPassword';
 import '../../styles/reset.css';
-import '../../styles/font.css';
-import '../../styles/main.css';
+import '../../styles/react-auth.css';
 import '../../styles/react-toastify.css';
 
 const AuthRouter = () => {
@@ -39,7 +38,7 @@ const AuthRouter = () => {
     <Switch>
       {Object.keys(modules).map((moduleName) => (
         <Route key={moduleName} exact path={getModulePath(moduleName)}>
-          <div>
+          <div className="react-auth">
             <ToastContainer
               position="top-right"
               autoClose={5000}

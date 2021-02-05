@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { AuthRouter, AuthProvider, SecureRoute } from '../'; // this would be import from '@tag0/react-auth';
 import ExampleAuthService from './ExampleAuthService';
+import '../styles/inter-ui.css';
 
 const authService = new ExampleAuthService({
   options: {
