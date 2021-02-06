@@ -13,6 +13,8 @@ class ExampleAuthService extends AuthService {
       this.setAuthData({ email, loginAt: Date.now() });
       this.setNotification({ type: 'success', message: 'Login success' });
       this.history.push('/home');
+    } else {
+      this.setNotification({ type: 'error', message: 'Login failed' });
     }
   };
 }
