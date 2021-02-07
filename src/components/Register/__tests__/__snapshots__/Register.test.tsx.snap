@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register renders properly 1`] = `
+<DocumentFragment>
+  <main
+    class="auth-container"
+  >
+    <div
+      class="auth-logo"
+    />
+    <div
+      class="auth-form-container tile"
+    >
+      <div
+        class="auth-form-title"
+      >
+        Register
+      </div>
+      <p
+        class="auth-form-description"
+      >
+        Please provide information below to register a new user.
+      </p>
+      <form
+        class="auth-form"
+      >
+        <div
+          class="auth-form-row"
+        >
+          <input
+            id="firstName"
+            maxlength="30"
+            name="firstName"
+            placeholder="First name"
+            required=""
+            type="text"
+          />
+          <input
+            id="lastName"
+            maxlength="30"
+            name="lastName"
+            placeholder="Last name"
+            required=""
+            type="text"
+          />
+        </div>
+        <div
+          class="auth-form-row"
+        >
+          <input
+            id="birthDate"
+            name="birthDate"
+            placeholder="Date of birth"
+            required=""
+            type="date"
+          />
+        </div>
+        <div
+          class="auth-form-row"
+        >
+          <input
+            id="email"
+            name="email"
+            placeholder="E-mail"
+            required=""
+            type="email"
+          />
+        </div>
+        <div
+          class="auth-form-row"
+        >
+          <input
+            id="password"
+            name="password"
+            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\\\\d)(?=.*[!@#$%&*?])[A-Za-z\\\\d!@#$%&*?]{8,}"
+            placeholder="Password"
+            required=""
+            title="Please enter min. 8 characters having at least 1 capital letter, 1 lowercase letter, 1 number and 1 special character (!@#$%&*?)"
+            type="password"
+          />
+        </div>
+        <div
+          class="auth-form-submit"
+        >
+          <input
+            type="submit"
+            value="Submit"
+          />
+        </div>
+        <ul
+          class="auth-form-link"
+        >
+          <li>
+            <a
+              href="/auth/login"
+            >
+              I have an account
+            </a>
+          </li>
+          <li>
+            <a
+              href="/auth/reset-password"
+            >
+              Forgot password?
+            </a>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </main>
+</DocumentFragment>
+`;

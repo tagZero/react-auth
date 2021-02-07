@@ -1,17 +1,15 @@
 import React from 'react';
 import { MemoryRouter as Router } from 'react-router-dom';
 import { render } from '@testing-library/react';
-import SecureRoute from '../SecureRoute';
 import AuthProvider from '../../AuthProvider/AuthProvider';
+import Register from '../Register';
 
-describe('SecureRoute', () => {
+describe('Register', () => {
   const tree = () =>
     render(
       <Router>
-        <AuthProvider isAuthenticated={() => true}>
-          <SecureRoute>
-            <h1>Home</h1>
-          </SecureRoute>
+        <AuthProvider>
+          <Register />
         </AuthProvider>
       </Router>
     );

@@ -1,20 +1,14 @@
 import React from 'react';
 import { MemoryRouter as Router } from 'react-router-dom';
 import { render, fireEvent, waitFor } from '@testing-library/react';
-import AuthService from '../../AuthService/AuthService';
 import AuthProvider from '../../AuthProvider/AuthProvider';
 import AuthRouter from '../AuthRouter';
 
-class MockService extends AuthService {
-  isAuthenticated = jest.fn();
-}
-
 describe('AuthRouter', () => {
-  const service = new MockService();
   const tree = () =>
     render(
       <Router>
-        <AuthProvider service={service}>
+        <AuthProvider>
           <AuthRouter />
         </AuthProvider>
       </Router>

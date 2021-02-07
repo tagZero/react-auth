@@ -1,15 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
+import { LoginPropsType } from '../AuthProvider/AuthProvider.type';
 
 const Login = () => {
-  const { login, modules, getModulePath, options } = useAuth();
+  const context = useAuth();
+  const { login, modules, getModulePath, options } = context;
 
   const onSubmit = async (event) => {
     event.preventDefault();
     const keys = ['email', 'password'];
-    const props = keys.reduce((obj, key) => ({ ...obj, [key]: event.target[key].value }), {});
-    await login(props);
+    const props = keys.reduce(
+      (obj, key) => ({ ...obj, [key]: event.target[key].value }),
+      {}
+    ) as LoginPropsType;
+    await login(props, context);
   };
 
   const logoStyle = options.logoUrl ? { backgroundImage: `url(${options.logoUrl}` } : null;

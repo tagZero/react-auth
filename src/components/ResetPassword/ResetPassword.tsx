@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
 
 const ResetPassword = () => {
-  const { resetPassword, modules, getModulePath, options } = useAuth();
+  const context = useAuth();
+  const { resetPassword, modules, getModulePath, options } = context;
 
   const onSubmit = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;
-    await resetPassword({ email });
+    await resetPassword({ email }, context);
   };
 
   return (

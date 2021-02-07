@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { useAuth } from '../AuthProvider/AuthProvider';
 import Login from '../Login/Login';
@@ -10,7 +10,8 @@ import '../../styles/react-auth.css';
 import '../../styles/react-toastify.css';
 
 const AuthRouter = () => {
-  const { modules, getModulePath, notification } = useAuth();
+  const { modules, options, getModulePath, notification, isAuthenticated } = useAuth();
+  const history = useHistory();
 
   useEffect(() => {
     if (notification) {
@@ -18,6 +19,12 @@ const AuthRouter = () => {
       toast[type](message);
     }
   }, [notification]);
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      history.push(options.securedRoute);
+    }
+  }, [history, isAuthenticated, options.securedRoute]);
 
   const getComponent = (name: string) => {
     switch (name) {

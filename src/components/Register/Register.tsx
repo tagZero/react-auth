@@ -1,15 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
+import { RegisterPropsType } from '../AuthProvider/AuthProvider.type';
 
 const Register = () => {
-  const { register, modules, getModulePath, options } = useAuth();
+  const context = useAuth();
+  const { register, modules, getModulePath, options } = context;
 
   const onSubmit = async (event) => {
     event.preventDefault();
     const keys = ['firstName', 'lastName', 'birthDate', 'email', 'password'];
-    const props = keys.reduce((obj, key) => ({ ...obj, [key]: event.target[key].value }), {});
-    await register(props);
+    const props = keys.reduce(
+      (obj, key) => ({ ...obj, [key]: event.target[key].value }),
+      {}
+    ) as RegisterPropsType;
+    await register(props, context);
   };
 
   return (
