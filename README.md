@@ -23,7 +23,7 @@ yarn add @tag0/react-auth
 
 ## Development
 
-Clone project. Start [example project] with the command below and browse on http://localhost:5000
+Clone project. Start [example project] with the command below and browse on http://localhost:5000 or try out [online demo]
 
 ```bash
 yarn start
@@ -36,3 +36,4 @@ yarn watch
 [ss-light]: https://imagemarker.s3.eu-central-1.amazonaws.com/auth/light.png
 [ss-dark]: https://imagemarker.s3.eu-central-1.amazonaws.com/auth/dark.png
 [example project]: src/examples/Example.tsx
+[online demo]: https://codesandbox.io/s/hungry-hellman-t43c7
