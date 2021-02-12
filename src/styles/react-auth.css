@@ -1,4 +1,4 @@
-.tile {
+.auth-tile {
   box-sizing: border-box;
   border-radius: 4px;
   overflow: hidden;
@@ -8,8 +8,8 @@
 }
 
 .auth-container {
-  margin: 3em auto;
-  width: 340px;
+  margin: 2em auto;
+  width: 350px;
 }
 
 .auth-logo {
@@ -128,7 +128,7 @@
   body,input,select,textarea {
     color: #fff;
   }
-  .tile {
+  .auth-tile {
     background-color: #222;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   }
@@ -151,7 +151,7 @@
   body,input,select,textarea {
     color: #000;
   }
-  .tile {
+  .auth-tile {
     background-color: #f4f4f4;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.06);
   }

@@ -1,0 +1,36 @@
+.loading-container {
+  display: flex;
+  height: 100vh;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.loading {
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .loading {
+    border: 8px solid rgba(50, 50, 50, 0.2);
+    border-top-color: #222;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .loading {
+    border: 8px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #FFF;
+  }
+}

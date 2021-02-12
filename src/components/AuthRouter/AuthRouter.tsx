@@ -8,9 +8,10 @@ import ResetPassword from '../ResetPassword/ResetPassword';
 import '../../styles/reset.css';
 import '../../styles/react-auth.css';
 import '../../styles/react-toastify.css';
+import '../../styles/loader.css';
 
 const AuthRouter = () => {
-  const { modules, options, getModulePath, notification, isAuthenticated } = useAuth();
+  const { loading, modules, options, getModulePath, notification, isAuthenticated } = useAuth();
   const history = useHistory();
 
   useEffect(() => {
@@ -57,7 +58,13 @@ const AuthRouter = () => {
               draggable
               pauseOnHover
             />
-            {getComponent(moduleName)}
+            {loading ? (
+              <div className="loading-container">
+                <div className="loading" />
+              </div>
+            ) : (
+              getComponent(moduleName)
+            )}
           </div>
         </Route>
       ))}

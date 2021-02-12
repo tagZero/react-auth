@@ -23,7 +23,7 @@ const Login = () => {
     <main className="auth-container">
       <div className="auth-logo" style={logoStyle} />
       {options.logoTitle ? <div className="auth-title">{options.logoTitle}</div> : null}
-      <div className="auth-form-container tile">
+      <div className="auth-form-container auth-tile">
         <div className="auth-form-title">{modules.login.title}</div>
         <p className="auth-form-description">{modules.login.description}</p>
         <form className="auth-form" onSubmit={onSubmit}>

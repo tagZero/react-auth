@@ -13,6 +13,7 @@ export interface RegisterPropsType extends LoginPropsType {
 
 export interface AuthProviderPropsType {
   isAuthenticated?: () => boolean;
+  loadingState?: boolean;
   login?: (props: LoginPropsType, context?: AuthProviderType) => Promise<any>;
   logout?: (context?: AuthProviderType) => Promise<any>;
   register?: (props: RegisterPropsType, context?: AuthProviderType) => Promise<any>;
@@ -23,9 +24,11 @@ export interface AuthProviderPropsType {
 
 export interface AuthProviderType extends AuthProviderPropsType {
   authData?: any;
+  loading: boolean;
   getModulePath: (module: string) => string;
   notification?: any;
   setAuthData?: (props: any) => any;
+  setLoading?: (props: any) => any;
   setModules?: (props: any) => any;
   setNotification?: (props: NotificationState) => void;
   setOptions?: (props: any) => any;

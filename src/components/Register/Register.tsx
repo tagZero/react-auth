@@ -21,7 +21,7 @@ const Register = () => {
     <main className="auth-container">
       <div className="auth-logo" style={{ backgroundImage: `url(${options.logoUrl}` }} />
       {options.logoTitle ? <div className="auth-title">{options.logoTitle}</div> : null}
-      <div className="auth-form-container tile">
+      <div className="auth-form-container auth-tile">
         <div className="auth-form-title">{modules.register.title}</div>
         <p className="auth-form-description">{modules.register.description}</p>
         <form className="auth-form" onSubmit={onSubmit}>
