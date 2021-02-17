@@ -122,10 +122,13 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
+  body.react-auth {
     background-color: #141414;
+    color: #fff;
   }
-  body,input,select,textarea {
+  body.react-auth input,
+  body.react-auth select,
+  body.react-auth textarea {
     color: #fff;
   }
   .auth-tile {
@@ -145,10 +148,13 @@
   }
 }
 @media (prefers-color-scheme: light) {
-  body {
+  body.react-auth {
     background-color: #fff;
+    color: #000;
   }
-  body,input,select,textarea {
+  body.react-auth input,
+  body.react-auth select,
+  body.react-auth textarea {
     color: #000;
   }
   .auth-tile {
@@ -168,14 +174,11 @@
   }
 }
 
-body {
-  line-height: 1.54;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  font-feature-settings: "liga", "tnum", "case", "calt", "zero", "ss01", "locl";
-}
-
 .react-auth * {
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Segoe UI", "Nimbus Sans L",
   "Liberation Sans", "Open Sans", FreeSans, Arial, sans-serif;
+  line-height: 1.54;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-weight: normal;
 }

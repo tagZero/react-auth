@@ -1,4 +1,4 @@
-import React, { createContext, PropsWithChildren, useContext, useState } from 'react';
+import React, { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react';
 import { AuthProviderPropsType, AuthProviderType } from './AuthProvider.type';
 
 const AuthContext = createContext({} as AuthProviderType);
@@ -51,6 +51,12 @@ const AuthProvider = ({
       ...authModules?.resetPassword
     }
   });
+
+  useEffect(() => {
+    if (!document.body.classList.contains('react-auth')) {
+      document.body.classList.add('react-auth');
+    }
+  }, []);
 
   const isAuthenticated = (): boolean => {
     return !!token;
