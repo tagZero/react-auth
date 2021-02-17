@@ -5,7 +5,6 @@ import { useAuth } from '../AuthProvider/AuthProvider';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import ResetPassword from '../ResetPassword/ResetPassword';
-import '../../styles/reset.css';
 import '../../styles/react-auth.css';
 import '../../styles/react-toastify.css';
 import '../../styles/loader.css';
