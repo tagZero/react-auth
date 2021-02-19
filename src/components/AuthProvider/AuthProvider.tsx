@@ -88,7 +88,8 @@ const AuthProvider = ({
         setModules,
         setNotification,
         setOptions,
-        setToken
+        setToken,
+        token
       }}
     >
       {children}
