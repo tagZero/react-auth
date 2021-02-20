@@ -43,7 +43,8 @@
 }
 
 .auth-form-container {
-  padding: 20px;
+  position: relative;
+  padding: 20px 20px 10px;
   width: 100%;
   margin-top: 20px;
 }
@@ -85,6 +86,25 @@
   flex: 1 1 auto;
   padding: 5px;
   font-size: 20px;
+}
+
+.auth-form-error {
+  background: #dc5641;
+}
+.auth-form-success {
+  background: #377a27;
+}
+
+.auth-form-success,
+.auth-form-error {
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  right: 1px;
+  color: #fff;
+  border-radius: 3px;
+  padding: 3px 5px;
+  font-size: 0.8rem;
 }
 
 .auth-form-submit input[type=submit] {

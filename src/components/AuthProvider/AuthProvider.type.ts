@@ -1,5 +1,3 @@
-export type NotificationType = 'info' | 'warn' | 'error' | 'success';
-
 export interface LoginPropsType {
   email: string;
   password: string;
@@ -23,20 +21,11 @@ export interface AuthProviderPropsType {
 }
 
 export interface AuthProviderType extends AuthProviderPropsType {
-  authData?: any;
   loading: boolean;
   getModulePath: (module: string) => string;
-  notification?: any;
-  setAuthData?: (props: any) => any;
   setLoading?: (props: any) => any;
   setModules?: (props: any) => any;
-  setNotification?: (props: NotificationState) => void;
   setOptions?: (props: any) => any;
   setToken?: (token: string | null) => any;
   token?: string | null;
-}
-
-export interface NotificationState {
-  type: NotificationType;
-  message: string;
 }

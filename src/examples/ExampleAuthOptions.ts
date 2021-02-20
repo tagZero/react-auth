@@ -8,11 +8,9 @@ export default {
   login: async ({ email, password }, authContext) => {
     if (email && password) {
       authContext.setToken('foo');
-      authContext.setNotification({ type: 'success', message: 'Login successful' });
       await Promise.resolve();
     } else {
-      authContext.setNotification({ type: 'error', message: 'Login failed' });
-      await Promise.reject();
+      await Promise.reject('Login failed');
     }
   },
   logout: async (authContext) => {

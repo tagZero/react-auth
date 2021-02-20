@@ -17,8 +17,6 @@ const AuthProvider = ({
 }: PropsWithChildren<AuthProviderPropsType>) => {
   const [loading, setLoading] = useState<boolean>(!!loadingState);
   const [token, setToken] = useState<string>();
-  const [authData, setAuthData] = useState<any>();
-  const [notification, setNotification] = useState<any>();
   const [options, setOptions] = useState({
     ...authOptions,
     authRoute: authOptions?.authRoute || '/auth',
@@ -31,6 +29,7 @@ const AuthProvider = ({
       title: 'Login',
       text: 'I have an account',
       description: 'Please provide your credentials below to login.',
+      successMessage: 'Successful',
       ...authModules?.login
     },
     register: {
@@ -38,6 +37,7 @@ const AuthProvider = ({
       title: 'Register',
       text: 'Create new account',
       description: 'Please provide information below to register a new user.',
+      successMessage: 'Registration was successful. Please check your email address for activation email.',
       passwordPattern: '(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%&*?])[A-Za-z\\d!@#$%&*?]{8,}',
       passwordPatternMessage:
         'Please enter min. 8 characters having at least 1 capital letter, 1 lowercase letter, 1 number and 1 special character (!@#$%&*?)',
@@ -47,6 +47,8 @@ const AuthProvider = ({
       path: '/reset-password',
       title: 'Reset password',
       text: 'Forgot password?',
+      successMessage:
+        'Password reset was successful. Please check your email address for password reset email.',
       description: 'Please provide your e-mail address to reset your password.',
       ...authModules?.resetPassword
     }
@@ -72,21 +74,17 @@ const AuthProvider = ({
   return (
     <AuthContext.Provider
       value={{
-        authData,
         getModulePath,
         isAuthenticated: overrideIsAuthenticated || isAuthenticated,
         loading,
         login,
         logout,
-        notification,
         modules,
         options,
         register,
         resetPassword,
-        setAuthData,
         setLoading,
         setModules,
-        setNotification,
         setOptions,
         setToken,
         token

@@ -1,9 +1,23 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .loading-container {
   display: flex;
   height: 100vh;
   flex-flow: column nowrap;
-  margin: 0 auto;
+  margin: -20px auto;
   justify-content: center;
+  text-align: center;
+}
+
+.loading-container h2 {
+  margin-top: 0;
 }
 
 .loading {

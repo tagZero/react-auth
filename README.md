@@ -6,7 +6,7 @@ Customizable AuthProvider/AuthService and UI components for your react projects.
 
 This project is still in development.
 
-There are 3 components with light/dark themes. You can see `Login` component below. HTML5 validations are included (email, required, max length, strong password). Notifications are provided by React-Toastify
+There are 3 components with light/dark themes. You can see `Login` component below. HTML5 validations are included (email, required, max length, strong password)
 - Login
 - Register (Fields are `firstName, lastName, birthDate, email and password`. It will allow customization in the future.)
 - Reset Password

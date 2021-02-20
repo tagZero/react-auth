@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
 import { RegisterPropsType } from '../AuthProvider/AuthProvider.type';
 
 const Register = () => {
+  const [notification, setNotification] = useState<any>();
   const context = useAuth();
   const { register, modules, getModulePath, options } = context;
 
@@ -14,7 +15,13 @@ const Register = () => {
       (obj, key) => ({ ...obj, [key]: event.target[key].value }),
       {}
     ) as RegisterPropsType;
-    await register(props, context);
+
+    try {
+      await register(props, context);
+      setNotification({ type: 'success', message: modules.register.successMessage });
+    } catch (err) {
+      setNotification({ type: 'error', message: err });
+    }
   };
 
   return (
@@ -22,6 +29,12 @@ const Register = () => {
       <div className="auth-logo" style={{ backgroundImage: `url(${options.logoUrl}` }} />
       {options.logoTitle ? <div className="auth-title">{options.logoTitle}</div> : null}
       <div className="auth-form-container auth-tile">
+        {notification?.type === 'error' ? (
+          <div className="auth-form-error">{notification.message}</div>
+        ) : null}
+        {notification?.type === 'success' ? (
+          <div className="auth-form-success">{notification.message}</div>
+        ) : null}
         <div className="auth-form-title">{modules.register.title}</div>
         <p className="auth-form-description">{modules.register.description}</p>
         <form className="auth-form" onSubmit={onSubmit}>
