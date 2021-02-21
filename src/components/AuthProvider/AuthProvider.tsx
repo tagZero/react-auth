@@ -37,6 +37,9 @@ const AuthProvider = ({
       title: 'Register',
       text: 'Create new account',
       description: 'Please provide information below to register a new user.',
+      termsAndConditions: 'I agree to all the',
+      termsAndConditionsLink: '/tac',
+      termsAndConditionsLinkText: 'terms and conditions',
       successMessage: 'Registration was successful. Please check your email address for activation email.',
       passwordPattern: '(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%&*?])[A-Za-z\\d!@#$%&*?]{8,}',
       passwordPatternMessage:
@@ -84,8 +87,6 @@ const AuthProvider = ({
         register,
         resetPassword,
         setLoading,
-        setModules,
-        setOptions,
         setToken,
         token
       }}

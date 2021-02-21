@@ -24,8 +24,6 @@ export interface AuthProviderType extends AuthProviderPropsType {
   loading: boolean;
   getModulePath: (module: string) => string;
   setLoading?: (props: any) => any;
-  setModules?: (props: any) => any;
-  setOptions?: (props: any) => any;
   setToken?: (token: string | null) => any;
   token?: string | null;
 }

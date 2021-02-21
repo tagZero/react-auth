@@ -138,11 +138,24 @@
   margin-top: 5px;
 }
 
-.auth-form-link li a {
+.auth-form-tac {
+  margin-top: 5px;
+}
+
+.auth-form-tac input[type=checkbox] {
+  margin: 1px 5px 5px 0;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.auth-form-link li a,
+.auth-form-tac a {
   color: dodgerblue;
   text-decoration: none;
 }
 
+.auth-form-tac a:hover,
 .auth-form-link li a:hover {
   border-bottom: solid 1px dodgerblue;
 }

@@ -7,6 +7,8 @@ const Register = () => {
   const [notification, setNotification] = useState<any>();
   const context = useAuth();
   const { register, modules, getModulePath, options } = context;
+  const { register: registerOptions } = modules;
+  const { title, description, passwordPattern, passwordPatternMessage, successMessage } = registerOptions;
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -18,7 +20,7 @@ const Register = () => {
 
     try {
       await register(props, context);
-      setNotification({ type: 'success', message: modules.register.successMessage });
+      setNotification({ type: 'success', message: successMessage });
     } catch (err) {
       setNotification({ type: 'error', message: err });
     }
@@ -35,8 +37,8 @@ const Register = () => {
         {notification?.type === 'success' ? (
           <div className="auth-form-success">{notification.message}</div>
         ) : null}
-        <div className="auth-form-title">{modules.register.title}</div>
-        <p className="auth-form-description">{modules.register.description}</p>
+        <div className="auth-form-title">{title}</div>
+        <p className="auth-form-description">{description}</p>
         <form className="auth-form" onSubmit={onSubmit}>
           <div className="auth-form-row">
             <input
@@ -68,11 +70,22 @@ const Register = () => {
               name="password"
               id="password"
               placeholder="Password"
-              title={modules.register.passwordPatternMessage}
+              title={passwordPatternMessage}
               required
-              pattern={modules.register.passwordPattern}
+              pattern={passwordPattern}
             />
           </div>
+          {registerOptions.termsAndConditions ? (
+            <div className="auth-form-tac">
+              <label>
+                <input type="checkbox" name="tac" id="tac" required />
+                {registerOptions.termsAndConditions}&nbsp;
+                <a href={registerOptions.termsAndConditionsLink} target="_blank" rel="noreferrer">
+                  {registerOptions.termsAndConditionsLinkText}
+                </a>
+              </label>
+            </div>
+          ) : null}
           <div className="auth-form-submit">
             <input type="submit" value="Submit" />
           </div>
