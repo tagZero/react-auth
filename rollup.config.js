@@ -41,7 +41,10 @@ export default {
   external: ['react', 'react-dom', 'react-router-dom'],
   plugins: [
     replace({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      preventAssignment: true,
+      values: {
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      }
     }),
     postcss({
       extract: false
