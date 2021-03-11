@@ -18,14 +18,14 @@ describe('AuthRouter', () => {
 
   test('renders login', () => {
     const { getByText } = tree();
-    expect(getByText('Please provide your credentials below to login.')).toBeDefined();
+    expect(getByText('Please provide your credentials below to login')).toBeDefined();
   });
 
   test('renders register', async () => {
     const { getByText } = tree();
     fireEvent.click(getByText('Create new account'));
     await waitFor(() =>
-      expect(getByText('Please provide information below to register a new user.')).toBeDefined()
+      expect(getByText('Please provide information below to register a new user')).toBeDefined()
     );
   });
 
@@ -33,7 +33,7 @@ describe('AuthRouter', () => {
     const { getByText } = tree();
     fireEvent.click(getByText('Forgot password?'));
     await waitFor(() =>
-      expect(getByText('Please provide your e-mail address to reset your password.')).toBeDefined()
+      expect(getByText('Please provide your e-mail address to reset your password')).toBeDefined()
     );
   });
 });

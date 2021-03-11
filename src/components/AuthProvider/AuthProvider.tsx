@@ -28,7 +28,7 @@ const AuthProvider = ({
       path: '/login',
       title: 'Login',
       text: 'I have an account',
-      description: 'Please provide your credentials below to login.',
+      description: 'Please provide your credentials below to login',
       successMessage: 'Successful',
       ...authModules?.login
     },
@@ -36,7 +36,7 @@ const AuthProvider = ({
       path: '/register',
       title: 'Register',
       text: 'Create new account',
-      description: 'Please provide information below to register a new user.',
+      description: 'Please provide information below to register a new user',
       termsAndConditions: 'I agree to all the',
       termsAndConditionsLink: '/tac',
       termsAndConditionsLinkText: 'terms and conditions',
@@ -52,7 +52,7 @@ const AuthProvider = ({
       text: 'Forgot password?',
       successMessage:
         'Password reset was successful. Please check your email address for password reset email.',
-      description: 'Please provide your e-mail address to reset your password.',
+      description: 'Please provide your e-mail address to reset your password',
       ...authModules?.resetPassword
     }
   });

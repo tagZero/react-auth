@@ -104,7 +104,7 @@
   color: #fff;
   border-radius: 3px;
   padding: 3px 5px;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
 }
 
 .auth-form-submit input[type=submit] {
@@ -140,6 +140,7 @@
 
 .auth-form-tac {
   margin-top: 5px;
+  font-size: 15px;
 }
 
 .auth-form-tac input[type=checkbox] {
@@ -216,7 +217,6 @@
 .react-auth * {
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Segoe UI", "Nimbus Sans L",
   "Liberation Sans", "Open Sans", FreeSans, Arial, sans-serif;
-  line-height: 1.54;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   font-weight: normal;

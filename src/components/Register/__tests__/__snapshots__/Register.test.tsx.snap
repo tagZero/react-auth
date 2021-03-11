@@ -19,7 +19,7 @@ exports[`Register renders properly 1`] = `
       <p
         class="auth-form-description"
       >
-        Please provide information below to register a new user.
+        Please provide information below to register a new user
       </p>
       <form
         class="auth-form"

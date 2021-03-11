@@ -19,7 +19,7 @@ exports[`Login renders properly 1`] = `
       <p
         class="auth-form-description"
       >
-        Please provide your credentials below to login.
+        Please provide your credentials below to login
       </p>
       <form
         class="auth-form"
