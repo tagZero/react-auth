@@ -4,6 +4,7 @@ import { useAuth } from '../AuthProvider/AuthProvider';
 import { LoginPropsType } from '../AuthProvider/AuthProvider.type';
 
 const Login = () => {
+  const params: URLSearchParams = new URLSearchParams(window.location.search?.substring(1));
   const context = useAuth();
   const { login, modules, getModulePath, options, notify } = context;
 
@@ -34,10 +35,24 @@ const Login = () => {
         <p className="auth-form-description">{modules.login.description}</p>
         <form className="auth-form" onSubmit={onSubmit}>
           <div className="auth-form-row">
-            <input type="email" name="email" id="email" placeholder="E-mail" required />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="E-mail"
+              required
+              {...(params.has('email') ? { defaultValue: params.get('email') } : { autoFocus: true })}
+            />
           </div>
           <div className="auth-form-row">
-            <input type="password" name="password" id="password" placeholder="Password" required />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+              {...(params.has('email') ? { autoFocus: true } : {})}
+            />
           </div>
           <div className="auth-form-submit">
             <input type="submit" value="Submit" />

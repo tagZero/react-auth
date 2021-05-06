@@ -20,8 +20,9 @@ const Register = () => {
 
     try {
       await register(props, context);
-      modules.register.successMessage && notify({ type: 'success', message: modules.register.successMessage });
-      history.push(getModulePath('login'));
+      modules.register.successMessage &&
+        notify({ type: 'success', message: modules.register.successMessage });
+      history.push(`${getModulePath('login')}?email=${encodeURIComponent(props.email)}`);
     } catch (err) {
       notify({ type: 'error', message: err });
     }
