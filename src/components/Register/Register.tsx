@@ -8,7 +8,7 @@ const Register = () => {
   const context = useAuth();
   const { register, modules, getModulePath, options, notify } = context;
   const { register: registerOptions } = modules;
-  const { title, description, passwordPattern, passwordPatternMessage, successMessage } = registerOptions;
+  const { title, description, passwordPattern, passwordPatternMessage } = registerOptions;
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -20,7 +20,7 @@ const Register = () => {
 
     try {
       await register(props, context);
-      notify({ type: 'success', message: successMessage });
+      modules.register.successMessage && notify({ type: 'success', message: modules.register.successMessage });
       history.push(getModulePath('login'));
     } catch (err) {
       notify({ type: 'error', message: err });

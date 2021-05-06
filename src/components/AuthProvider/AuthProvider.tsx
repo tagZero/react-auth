@@ -30,7 +30,6 @@ const AuthProvider = ({
       title: 'Login',
       text: 'I have an account',
       description: 'Please provide your credentials below to login',
-      successMessage: 'Successful',
       ...authModules?.login
     },
     register: {

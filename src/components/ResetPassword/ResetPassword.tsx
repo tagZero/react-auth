@@ -12,7 +12,8 @@ const ResetPassword = () => {
 
     try {
       await resetPassword({ email }, context);
-      notify({ type: 'success', message: modules.resetPassword.successMessage });
+      modules.resetPassword.successMessage &&
+        notify({ type: 'success', message: modules.resetPassword.successMessage });
     } catch (err) {
       notify({ type: 'error', message: err });
     }

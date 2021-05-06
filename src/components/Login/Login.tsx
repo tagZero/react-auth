@@ -17,7 +17,7 @@ const Login = () => {
 
     try {
       await login(props, context);
-      notify({ type: 'success', message: modules.login.successMessage });
+      modules.login.successMessage && notify({ type: 'success', message: modules.login.successMessage });
     } catch (err) {
       notify({ type: 'error', message: err });
     }
