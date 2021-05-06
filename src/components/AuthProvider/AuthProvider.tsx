@@ -13,6 +13,7 @@ const AuthProvider = ({
   isAuthenticated: overrideIsAuthenticated,
   options: authOptions = {},
   modules: authModules = {},
+  messageProvider,
   children
 }: PropsWithChildren<AuthProviderPropsType>) => {
   const [loading, setLoading] = useState<boolean>(!!loadingState);
@@ -74,6 +75,18 @@ const AuthProvider = ({
     return options.authRoute + modules[module].path;
   };
 
+  const notify = (notification) => {
+    if (messageProvider) {
+      return messageProvider(notification);
+    } else {
+      if (notification.type === 'error') {
+        console.error(notification.message);
+      } else {
+        console.log(notification.message);
+      }
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -88,6 +101,7 @@ const AuthProvider = ({
         resetPassword,
         setLoading,
         setToken,
+        notify,
         token
       }}
     >

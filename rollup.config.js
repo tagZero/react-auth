@@ -6,6 +6,7 @@ import { terser } from "rollup-plugin-terser";
 import ts from "@wessberg/rollup-plugin-ts";
 import filesize from 'rollup-plugin-filesize';
 import copy from 'rollup-plugin-copy';
+import autoprefixer from 'autoprefixer';
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -47,7 +48,10 @@ export default {
       }
     }),
     postcss({
-      extract: false
+      extract: false,
+      plugins: [
+        autoprefixer()
+      ]
     }),
     ts({ exclude: 'src/examples/*' }),
     commonjs(),

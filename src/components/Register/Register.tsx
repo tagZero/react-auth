@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
 import { RegisterPropsType } from '../AuthProvider/AuthProvider.type';
 
 const Register = () => {
-  const [notification, setNotification] = useState<any>();
   const context = useAuth();
-  const { register, modules, getModulePath, options } = context;
+  const { register, modules, getModulePath, options, notify } = context;
   const { register: registerOptions } = modules;
   const { title, description, passwordPattern, passwordPatternMessage, successMessage } = registerOptions;
 
@@ -20,9 +19,9 @@ const Register = () => {
 
     try {
       await register(props, context);
-      setNotification({ type: 'success', message: successMessage });
+      notify({ type: 'success', message: successMessage });
     } catch (err) {
-      setNotification({ type: 'error', message: err });
+      notify({ type: 'error', message: err });
     }
   };
 
@@ -31,12 +30,6 @@ const Register = () => {
       <div className="auth-logo" style={{ backgroundImage: `url(${options.logoUrl}` }} />
       {options.logoTitle ? <div className="auth-title">{options.logoTitle}</div> : null}
       <div className="auth-form-container auth-tile">
-        {notification?.type === 'error' ? (
-          <div className="auth-form-error">{notification.message}</div>
-        ) : null}
-        {notification?.type === 'success' ? (
-          <div className="auth-form-success">{notification.message}</div>
-        ) : null}
         <div className="auth-form-title">{title}</div>
         <p className="auth-form-description">{description}</p>
         <form className="auth-form" onSubmit={onSubmit}>

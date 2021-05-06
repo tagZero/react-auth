@@ -18,6 +18,7 @@ export interface AuthProviderPropsType {
   resetPassword?: (props: { email: string }, context?: AuthProviderType) => Promise<any>;
   modules?: any;
   options?: any;
+  messageProvider?: any;
 }
 
 export interface AuthProviderType extends AuthProviderPropsType {
@@ -25,5 +26,6 @@ export interface AuthProviderType extends AuthProviderPropsType {
   getModulePath: (module: string) => string;
   setLoading?: (props: any) => any;
   setToken?: (token: string | null) => any;
+  notify?: any;
   token?: string | null;
 }

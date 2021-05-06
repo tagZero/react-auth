@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
 
 const ResetPassword = () => {
-  const [notification, setNotification] = useState<any>();
   const context = useAuth();
-  const { resetPassword, modules, getModulePath, options } = context;
+  const { resetPassword, modules, getModulePath, options, notify } = context;
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -13,9 +12,9 @@ const ResetPassword = () => {
 
     try {
       await resetPassword({ email }, context);
-      setNotification({ type: 'success', message: modules.resetPassword.successMessage });
+      notify({ type: 'success', message: modules.resetPassword.successMessage });
     } catch (err) {
-      setNotification({ type: 'error', message: err });
+      notify({ type: 'error', message: err });
     }
   };
 
@@ -24,12 +23,6 @@ const ResetPassword = () => {
       <div className="auth-logo" style={{ backgroundImage: `url(${options.logoUrl}` }} />
       {options.logoTitle ? <div className="auth-title">{options.logoTitle}</div> : null}
       <div className="auth-form-container auth-tile">
-        {notification?.type === 'error' ? (
-          <div className="auth-form-error">{notification.message}</div>
-        ) : null}
-        {notification?.type === 'success' ? (
-          <div className="auth-form-success">{notification.message}</div>
-        ) : null}
         <div className="auth-form-title">{modules.resetPassword.title}</div>
         <p className="auth-form-description">{modules.resetPassword.description}</p>
         <form className="auth-form" onSubmit={onSubmit}>
