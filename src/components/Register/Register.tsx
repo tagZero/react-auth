@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
 import { RegisterPropsType } from '../AuthProvider/AuthProvider.type';
 
 const Register = () => {
+  const history = useHistory();
   const context = useAuth();
   const { register, modules, getModulePath, options, notify } = context;
   const { register: registerOptions } = modules;
@@ -20,6 +21,7 @@ const Register = () => {
     try {
       await register(props, context);
       notify({ type: 'success', message: successMessage });
+      history.push(getModulePath('login'));
     } catch (err) {
       notify({ type: 'error', message: err });
     }
