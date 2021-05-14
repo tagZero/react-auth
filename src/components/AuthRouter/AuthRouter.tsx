@@ -5,10 +5,9 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import ResetPassword from '../ResetPassword/ResetPassword';
 import '../../styles/react-auth.css';
-import '../../styles/loader.css';
 
 const AuthRouter = () => {
-  const { loading, modules, options, getModulePath, isAuthenticated } = useAuth();
+  const { modules, options, getModulePath, isAuthenticated } = useAuth();
   const history = useHistory();
 
   useEffect(() => {
@@ -36,16 +35,7 @@ const AuthRouter = () => {
     <Switch>
       {Object.keys(modules).map((moduleName) => (
         <Route key={moduleName} exact path={getModulePath(moduleName)}>
-          <div className="react-auth">
-            {loading ? (
-              <div className="loading-container">
-                <h2>Loading, please wait.</h2>
-                <div className="loading" />
-              </div>
-            ) : (
-              getComponent(moduleName)
-            )}
-          </div>
+          <div className="react-auth">{getComponent(moduleName)}</div>
         </Route>
       ))}
       <Redirect to={getModulePath('login')} />

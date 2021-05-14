@@ -5,7 +5,6 @@ const AuthContext = createContext({} as AuthProviderType);
 export const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({
-  loadingState,
   login,
   logout,
   register,
@@ -16,7 +15,6 @@ const AuthProvider = ({
   messageProvider,
   children
 }: PropsWithChildren<AuthProviderPropsType>) => {
-  const [loading, setLoading] = useState<boolean>(!!loadingState);
   const [token, setToken] = useState<string>();
   const [options, setOptions] = useState({
     ...authOptions,
@@ -91,14 +89,12 @@ const AuthProvider = ({
       value={{
         getModulePath,
         isAuthenticated: overrideIsAuthenticated || isAuthenticated,
-        loading,
         login,
         logout,
         modules,
         options,
         register,
         resetPassword,
-        setLoading,
         setToken,
         notify,
         token
