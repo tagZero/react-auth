@@ -24,17 +24,17 @@ export default {
   output: [
     {
       ...output,
-      file: production ? 'dist/cjs/react-auth.min.js' : 'dist/cjs/react-auth.js',
+      file: 'dist/cjs/react-auth.js',
       format: 'cjs'
     },
     {
       ...output,
-      file: production ? 'dist/es/react-auth.min.js' : 'dist/es/react-auth.js',
+      file: 'dist/es/react-auth.js',
       format: 'es'
     },
     {
       ...output,
-      file: production ? 'dist/umd/react-auth.min.js' : 'dist/umd/react-auth.js',
+      file: 'dist/umd/react-auth.js',
       format: 'umd',
       name: 'ReactAuth'
     }
