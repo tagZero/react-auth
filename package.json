@@ -1,6 +1,6 @@
 {
   "name": "@tag0/react-auth",
-  "version": "2.5.3",
+  "version": "2.6.0",
   "description": "Customizable AuthService/AuthProvider and components for react",
   "repository": {
     "type": "git",
@@ -70,7 +70,7 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-test-renderer": "^17.0.2",
-    "rollup": "^2.47.0",
+    "rollup": "^2.48.0",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-filesize": "^9.1.1",
     "rollup-plugin-postcss": "^4.0.0",

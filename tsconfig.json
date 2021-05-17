@@ -15,11 +15,17 @@
     "preserveConstEnums": true,
     "esModuleInterop": true,
     "sourceMap": true,
+    "skipLibCheck": true,
     "jsx": "react",
     "types": ["react", "react-dom", "jest"],
     "lib": ["ESNext", "DOM", "ES2015.Promise"]
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/**/__tests__",
+    "src/examples"
   ]
 }
