@@ -26,14 +26,14 @@ const AuthProvider = ({
     login: {
       path: '/login',
       title: 'Login',
-      text: 'I have an account',
+      text: 'Sign in',
       description: 'Please provide your credentials below to login',
       ...authModules?.login
     },
     register: {
       path: '/register',
       title: 'Register',
-      text: 'Create new account',
+      text: 'Create an account',
       description: 'Please provide information below to register a new user',
       termsAndConditions: 'I agree to all the',
       termsAndConditionsLink: '/tac',

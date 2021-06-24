@@ -111,10 +111,13 @@ exports[`Register renders properly 1`] = `
           class="auth-form-link"
         >
           <li>
+            <span>
+              Already have an account? 
+            </span>
             <a
               href="/auth/login"
             >
-              I have an account
+              Sign in
             </a>
           </li>
           <li>

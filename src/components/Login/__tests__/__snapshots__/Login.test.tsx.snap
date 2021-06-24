@@ -58,10 +58,13 @@ exports[`Login renders properly 1`] = `
           class="auth-form-link"
         >
           <li>
+            <span>
+              New user? 
+            </span>
             <a
               href="/auth/register"
             >
-              Create new account
+              Create an account
             </a>
           </li>
           <li>

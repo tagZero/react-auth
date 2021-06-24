@@ -59,6 +59,7 @@ const Login = () => {
           </div>
           <ul className="auth-form-link">
             <li>
+              <span>New user? </span>
               <Link to={getModulePath('register')}>{modules.register.text}</Link>
             </li>
             <li>

@@ -87,6 +87,7 @@ const Register = () => {
           </div>
           <ul className="auth-form-link">
             <li>
+              <span>Already have an account? </span>
               <Link to={getModulePath('login')}>{modules.login.text}</Link>
             </li>
             <li>

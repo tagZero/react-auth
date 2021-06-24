@@ -23,7 +23,7 @@ describe('AuthRouter', () => {
 
   test('renders register', async () => {
     const { getByText } = tree();
-    fireEvent.click(getByText('Create new account'));
+    fireEvent.click(getByText('Create an account'));
     await waitFor(() =>
       expect(getByText('Please provide information below to register a new user')).toBeDefined()
     );

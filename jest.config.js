@@ -17,5 +17,6 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': '<rootDir>/styleMock.js',
   },
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect']
+  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+  testEnvironment: 'jsdom'
 };
