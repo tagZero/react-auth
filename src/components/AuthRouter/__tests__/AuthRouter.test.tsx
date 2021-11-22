@@ -33,7 +33,7 @@ describe('AuthRouter', () => {
     const { getByText } = tree();
     fireEvent.click(getByText('Forgot password?'));
     await waitFor(() =>
-      expect(getByText('Please provide your e-mail address to reset your password')).toBeDefined()
+      expect(getByText('Please provide your e-mail address to reset password')).toBeDefined()
     );
   });
 });
