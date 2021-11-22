@@ -49,7 +49,7 @@ const AuthProvider = ({
       title: 'Reset password',
       text: 'Forgot password?',
       successMessage:
-        'Password reset was successful. Please check your email address for password reset email.',
+        'Password reset instructions will be sent to your email address if your email address is registered.',
       description: 'Please provide your e-mail address to reset your password',
       ...authModules?.resetPassword
     }

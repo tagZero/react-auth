@@ -3,7 +3,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import postcss from 'rollup-plugin-postcss';
 import { terser } from "rollup-plugin-terser";
-import ts from "@wessberg/rollup-plugin-ts";
+import ts from "rollup-plugin-ts";
 import filesize from 'rollup-plugin-filesize';
 import copy from 'rollup-plugin-copy';
 import autoprefixer from 'autoprefixer';

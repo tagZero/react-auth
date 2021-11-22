@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
 
 const ResetPassword = () => {
+  const history = useHistory();
   const context = useAuth();
   const { resetPassword, modules, getModulePath, options, notify } = context;
 
@@ -14,6 +15,7 @@ const ResetPassword = () => {
       await resetPassword({ email }, context);
       modules.resetPassword.successMessage &&
         notify({ type: 'success', message: modules.resetPassword.successMessage });
+      history.push(`${getModulePath('login')}?email=${encodeURIComponent(email)}`);
     } catch (err) {
       notify({ type: 'error', message: err });
     }

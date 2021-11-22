@@ -4,13 +4,13 @@ import replace from '@rollup/plugin-replace';
 import html from '@rollup/plugin-html';
 import copy from 'rollup-plugin-copy';
 import postcss from 'rollup-plugin-postcss';
-import ts from "@wessberg/rollup-plugin-ts";
+import ts from "rollup-plugin-ts";
 
 const template = `
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <base href="http://localhost:5000/" />
+    <base href="http://localhost:3000/" />
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -24,7 +24,7 @@ const template = `
     
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-router-dom/umd/react-router-dom.min.js"></script>
+    <script src="https://unpkg.com/react-router-dom@5.2.1/umd/react-router-dom.min.js"></script>
     <script src="example.js"></script>
   </body>
 </html>
