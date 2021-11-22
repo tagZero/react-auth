@@ -24,7 +24,7 @@ const template = `
     
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-router-dom@5.2.1/umd/react-router-dom.min.js"></script>
+    <script src="https://unpkg.com/react-router-dom@5.3.0/umd/react-router-dom.min.js"></script>
     <script src="example.js"></script>
   </body>
 </html>

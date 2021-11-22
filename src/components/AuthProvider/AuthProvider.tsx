@@ -41,16 +41,15 @@ const AuthProvider = ({
       successMessage: 'Registration was successful. Please check your email address for activation email.',
       passwordPattern: '(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%&*?])[A-Za-z\\d!@#$%&*?]{8,}',
       passwordPatternMessage:
-        'Please enter min. 8 characters having at least 1 capital letter, 1 lowercase letter, 1 number and 1 special character (!@#$%&*?)',
+        'Please note that the passwords must be at least 8 characters long and contain at least one number, one special character (!@#$%&*?), one capital and one lowercase letter.',
       ...authModules?.register
     },
     resetPassword: {
       path: '/reset-password',
       title: 'Reset password',
       text: 'Forgot password?',
-      successMessage:
-        'Password reset instructions will be sent to your email address if your email address is registered.',
-      description: 'Please provide your e-mail address to reset your password',
+      successMessage: "Password reset instructions will be sent to your email address if it's registered.",
+      description: 'Please provide your e-mail address to reset password',
       ...authModules?.resetPassword
     }
   });
