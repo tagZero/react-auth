@@ -100,7 +100,7 @@ exports[`Register renders properly 1`] = `
           </label>
         </div>
         <div
-          class="auth-form-submit"
+          class="auth-form-submit "
         >
           <input
             type="submit"

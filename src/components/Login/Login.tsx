@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
 import { LoginPropsType } from '../AuthProvider/AuthProvider.type';
 
 const Login = () => {
+  const [loading, setLoading] = useState<boolean>(false);
   const params: URLSearchParams = new URLSearchParams(window.location.search?.substring(1));
   const context = useAuth();
   const { login, modules, getModulePath, options, notify } = context;
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
+
     const keys = ['email', 'password'];
     const props = keys.reduce(
       (obj, key) => ({ ...obj, [key]: event.target[key].value }),
@@ -21,6 +24,8 @@ const Login = () => {
       modules.login.successMessage && notify({ type: 'success', message: modules.login.successMessage });
     } catch (err) {
       notify({ type: 'error', message: err });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -54,8 +59,8 @@ const Login = () => {
               {...(params.has('email') ? { autoFocus: true } : {})}
             />
           </div>
-          <div className="auth-form-submit">
-            <input type="submit" value="Submit" />
+          <div className={`auth-form-submit ${loading ? 'disabled' : ''}`}>
+            <input type="submit" value="Submit" disabled={loading} />
           </div>
           <ul className="auth-form-link">
             <li>

@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
 
 const ResetPassword = () => {
+  const [loading, setLoading] = useState<boolean>(false);
   const context = useAuth();
   const { resetPassword, modules, getModulePath, options, notify } = context;
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
+
     const email = event.target.email.value;
 
     try {
@@ -16,6 +19,8 @@ const ResetPassword = () => {
         notify({ type: 'success', message: modules.resetPassword.successMessage });
     } catch (err) {
       notify({ type: 'error', message: err });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -30,8 +35,8 @@ const ResetPassword = () => {
           <div className="auth-form-row">
             <input type="email" name="email" id="email" placeholder="E-mail" required />
           </div>
-          <div className="auth-form-submit">
-            <input type="submit" value="Submit" />
+          <div className={`auth-form-submit ${loading ? 'disabled' : ''}`}>
+            <input type="submit" value="Submit" disabled={loading} />
           </div>
           <ul className="auth-form-link">
             <li>

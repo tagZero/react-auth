@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
 import { RegisterPropsType } from '../AuthProvider/AuthProvider.type';
 
 const Register = () => {
+  const [loading, setLoading] = useState<boolean>(false);
   const history = useHistory();
   const context = useAuth();
   const { register, modules, getModulePath, options, notify } = context;
@@ -12,6 +13,8 @@ const Register = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
+
     const keys = ['firstName', 'lastName', 'birthDate', 'email', 'password'];
     const props = keys.reduce(
       (obj, key) => ({ ...obj, [key]: event.target[key].value }),
@@ -25,6 +28,8 @@ const Register = () => {
       history.push(`${getModulePath('login')}?email=${encodeURIComponent(props.email)}`);
     } catch (err) {
       notify({ type: 'error', message: err });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -82,8 +87,8 @@ const Register = () => {
               </label>
             </div>
           ) : null}
-          <div className="auth-form-submit">
-            <input type="submit" value="Submit" />
+          <div className={`auth-form-submit ${loading ? 'disabled' : ''}`}>
+            <input type="submit" value="Submit" disabled={loading} />
           </div>
           <ul className="auth-form-link">
             <li>

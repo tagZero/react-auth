@@ -20,6 +20,8 @@ export default {
     await Promise.resolve();
   },
   resetPassword: async ({ email }, authContext) => {
-    await Promise.resolve();
+    return new Promise((resolve, reject) => {
+      setTimeout(() => resolve(true), 3000);
+    });
   }
 };
