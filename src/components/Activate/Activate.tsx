@@ -40,7 +40,7 @@ const Activate = () => {
       {options.logoTitle ? <div className="auth-title">{options.logoTitle}</div> : null}
       <div className="auth-form-container auth-tile">
         <div className="auth-form-title">{modules.activate.title}</div>
-        <p className="auth-form-description">{modules.activate.description}</p>
+        <p className="auth-form-description auth-text-center">{modules.activate.description}</p>
       </div>
     </main>
   );
