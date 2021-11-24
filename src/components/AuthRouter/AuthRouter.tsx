@@ -4,6 +4,8 @@ import { useAuth } from '../AuthProvider/AuthProvider';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import ResetPassword from '../ResetPassword/ResetPassword';
+import ChangePassword from '../ChangePassword/ChangePassword';
+import Activate from '../Activate/Activate';
 import '../../styles/react-auth.css';
 
 const AuthRouter = () => {
@@ -26,6 +28,12 @@ const AuthRouter = () => {
       }
       case 'resetPassword': {
         return <ResetPassword />;
+      }
+      case 'changePassword': {
+        return <ChangePassword />;
+      }
+      case 'activate': {
+        return <Activate />;
       }
       // no default
     }

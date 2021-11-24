@@ -44,7 +44,7 @@
 
 .auth-form-container {
   position: relative;
-  padding: 20px 20px 10px;
+  padding: 20px;
   width: 100%;
   margin-top: 20px;
 }
@@ -68,6 +68,7 @@
 
 .auth-form-description {
   font-size: 14px;
+  line-height: 150%;
   color: #aaa;
   text-align: left;
   margin: 10px 0;

@@ -15,6 +15,8 @@ export interface AuthProviderPropsType {
   logout?: (context?: AuthProviderType) => Promise<any>;
   register?: (props: RegisterPropsType, context?: AuthProviderType) => Promise<any>;
   resetPassword?: (props: { email: string }, context?: AuthProviderType) => Promise<any>;
+  changePassword?: (props: { password: string; token: string }, context?: AuthProviderType) => Promise<any>;
+  activate?: (props: { token: string }, context?: AuthProviderType) => Promise<any>;
   modules?: any;
   options?: any;
   messageProvider?: any;

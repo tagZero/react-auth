@@ -9,6 +9,8 @@ const AuthProvider = ({
   logout,
   register,
   resetPassword,
+  changePassword,
+  activate,
   isAuthenticated: overrideIsAuthenticated,
   options: authOptions = {},
   modules: authModules = {},
@@ -41,7 +43,7 @@ const AuthProvider = ({
       successMessage: 'Registration was successful. Please check your email address for activation email.',
       passwordPattern: '(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%&*?])[A-Za-z\\d!@#$%&*?]{8,}',
       passwordPatternMessage:
-        'Please note that the passwords must be at least 8 characters long and contain at least one number, one special character (!@#$%&*?), one capital and one lowercase letter.',
+        'Passwords must be at least 8 characters long and it should contain at least 1 capital letter, 1 lowercase letter, 1 number and 1 special character (!@#$%&*?)',
       ...authModules?.register
     },
     resetPassword: {
@@ -51,7 +53,24 @@ const AuthProvider = ({
       successMessage: "Password reset instructions will be sent to your email address if it's registered.",
       description: 'Please provide your e-mail address to reset password',
       ...authModules?.resetPassword
-    }
+    },
+    changePassword: {
+      path: '/change-password',
+      title: 'Set your password',
+      successMessage: 'You have successfully changed your password. You can log in with your new password.',
+      description: 'Please provide a new password and confirm it.',
+      passwordPattern: '(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%&*?])[A-Za-z\\d!@#$%&*?]{8,}',
+      passwordPatternMessage:
+        'Passwords must be at least 8 characters long and it should contain at least 1 capital letter, 1 lowercase letter, 1 number and 1 special character (!@#$%&*?)',
+      ...authModules?.changePassword
+    },
+    activate: {
+      path: '/activate',
+      title: 'Account activation',
+      successMessage: 'You have successfully activated your account. You can log in now.',
+      description: 'Please wait...',
+      ...authModules?.activate
+    },
   });
 
   useEffect(() => {
@@ -88,12 +107,14 @@ const AuthProvider = ({
       value={{
         getModulePath,
         isAuthenticated: overrideIsAuthenticated || isAuthenticated,
+        activate,
         login,
         logout,
         modules,
         options,
         register,
         resetPassword,
+        changePassword,
         setToken,
         notify,
         token
