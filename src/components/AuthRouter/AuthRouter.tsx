@@ -7,9 +7,10 @@ import ResetPassword from '../ResetPassword/ResetPassword';
 import ChangePassword from '../ChangePassword/ChangePassword';
 import Activate from '../Activate/Activate';
 import '../../styles/react-auth.css';
+import CaptchaProvider from '../CaptchaProvider/CaptchaProvider';
 
 const AuthRouter = () => {
-  const { modules, options, getModulePath, isAuthenticated } = useAuth();
+  const { modules, options, getModulePath, isAuthenticated, captchaOptions } = useAuth();
   const history = useHistory();
 
   useEffect(() => {
@@ -21,13 +22,21 @@ const AuthRouter = () => {
   const getComponent = (name: string) => {
     switch (name) {
       case 'login': {
-        return <Login />;
+        return (
+          <CaptchaProvider options={captchaOptions}>
+            <Login />
+          </CaptchaProvider>
+        );
       }
       case 'register': {
         return <Register />;
       }
       case 'resetPassword': {
-        return <ResetPassword />;
+        return (
+          <CaptchaProvider options={captchaOptions}>
+            <ResetPassword />
+          </CaptchaProvider>
+        );
       }
       case 'changePassword': {
         return <ChangePassword />;

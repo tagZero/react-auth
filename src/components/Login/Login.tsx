@@ -2,27 +2,35 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
 import { LoginPropsType } from '../AuthProvider/AuthProvider.type';
+import { useCaptcha } from '../CaptchaProvider/CaptchaProvider';
 
 const Login = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const params: URLSearchParams = new URLSearchParams(window.location.search?.substring(1));
   const context = useAuth();
   const { login, modules, getModulePath, options, notify } = context;
+  const { incrementFailureCount, getCaptchaToken } = useCaptcha();
 
   const onSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
 
-    const keys = ['email', 'password'];
-    const props = keys.reduce(
-      (obj, key) => ({ ...obj, [key]: event.target[key].value }),
-      {}
-    ) as LoginPropsType;
-
     try {
+      const keys = ['email', 'password'];
+      const props = keys.reduce(
+        (obj, key) => ({ ...obj, [key]: event.target[key].value }),
+        {}
+      ) as LoginPropsType;
+
+      const captchaToken = await getCaptchaToken();
+      if (captchaToken) {
+        props.captchaToken = captchaToken;
+      }
+
       await login(props, context);
       modules.login.successMessage && notify({ type: 'success', message: modules.login.successMessage });
     } catch (err) {
+      incrementFailureCount();
       notify({ type: 'error', message: err });
     } finally {
       setLoading(false);

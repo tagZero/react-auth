@@ -6,7 +6,7 @@ export default {
     logoTitle: 'ReactAuth'
   },
   login: async ({ email, password }, authContext) => {
-    if (email && password) {
+    if (email === 'foo@bar.com' && password) {
       authContext.setToken('foo');
       await Promise.resolve();
     } else {

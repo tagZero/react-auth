@@ -23,7 +23,9 @@ yarn add @tag0/react-auth
 
 ## Development
 
-Clone project. Start [example project] with the command below and browse on http://localhost:5000 or try out [online demo]
+Clone project. Start [example project] with the command below and browse on http://fakelocal.com:3000 or try out [online demo]
+
+More info to define fakelocal.com here in [hCaptcha readme]
 
 ```bash
 yarn start
@@ -37,3 +39,4 @@ yarn watch
 [ss-dark]: https://imagemarker.s3.eu-central-1.amazonaws.com/auth/dark.png
 [example project]: src/examples/Example.tsx
 [online demo]: https://codesandbox.io/s/hungry-hellman-t43c7
+[hCaptcha readme]: https://github.com/hCaptcha/react-hcaptcha#note-for-maintainers

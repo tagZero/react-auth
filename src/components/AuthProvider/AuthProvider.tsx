@@ -15,6 +15,11 @@ const AuthProvider = ({
   options: authOptions = {},
   modules: authModules = {},
   messageProvider,
+  captchaOptions = {
+    enabled: true,
+    maxFailureCount: 5,
+    siteKey: null
+  },
   children
 }: PropsWithChildren<AuthProviderPropsType>) => {
   const [token, setToken] = useState<string>();
@@ -70,7 +75,7 @@ const AuthProvider = ({
       successMessage: 'You have successfully activated your account. You can log in now.',
       description: 'Please wait...',
       ...authModules?.activate
-    },
+    }
   });
 
   useEffect(() => {
@@ -117,7 +122,8 @@ const AuthProvider = ({
         changePassword,
         setToken,
         notify,
-        token
+        token,
+        captchaOptions
       }}
     >
       {children}

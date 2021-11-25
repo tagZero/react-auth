@@ -1,26 +1,37 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
+import { useCaptcha } from '../CaptchaProvider/CaptchaProvider';
 
 const ResetPassword = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const context = useAuth();
   const { resetPassword, modules, getModulePath, options, notify } = context;
+  const { incrementFailureCount, getCaptchaToken } = useCaptcha();
 
   const onSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
 
     const email = event.target.email.value;
+    const props: any = {
+      email
+    };
+
+    const captchaToken = await getCaptchaToken();
+    if (captchaToken) {
+      props.captchaToken = captchaToken;
+    }
 
     try {
-      await resetPassword({ email }, context);
+      await resetPassword(props, context);
       modules.resetPassword.successMessage &&
         notify({ type: 'success', message: modules.resetPassword.successMessage });
     } catch (err) {
       notify({ type: 'error', message: err });
     } finally {
       setLoading(false);
+      incrementFailureCount();
     }
   };
 

@@ -10,7 +10,7 @@ const template = `
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <base href="http://localhost:3000/" />
+    <base href="http://fakelocal.com:3000/" />
     <meta charset="utf-8" />
     <meta
       name="viewport"
