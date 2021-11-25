@@ -10,6 +10,12 @@ export interface RegisterPropsType extends LoginPropsType {
   birthDate: number;
 }
 
+export interface CaptchaOptions {
+  enabled: boolean;
+  maxFailureCount: number;
+  siteKey: string;
+}
+
 export interface AuthProviderPropsType {
   isAuthenticated?: () => boolean;
   login?: (props: LoginPropsType, context?: AuthProviderType) => Promise<any>;
@@ -24,7 +30,7 @@ export interface AuthProviderPropsType {
   modules?: any;
   options?: any;
   messageProvider?: any;
-  captchaOptions?: any;
+  captchaOptions?: CaptchaOptions;
 }
 
 export interface AuthProviderType extends AuthProviderPropsType {
