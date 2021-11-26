@@ -33,6 +33,7 @@ exports[`Login renders properly 1`] = `
             placeholder="E-mail"
             required=""
             type="email"
+            value=""
           />
         </div>
         <div
