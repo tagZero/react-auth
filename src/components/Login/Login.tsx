@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
 import { LoginPropsType } from '../AuthProvider/AuthProvider.type';
 import { useCaptcha } from '../CaptchaProvider/CaptchaProvider';
+import useQuery from '../../hooks/useQuery';
 
 const Login = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const params: URLSearchParams = new URLSearchParams(window.location.search?.substring(1));
+  const query: any = useQuery();
   const context = useAuth();
   const { login, modules, getModulePath, options, notify } = context;
   const { incrementFailureCount, getCaptchaToken } = useCaptcha();
@@ -54,7 +55,7 @@ const Login = () => {
               id="email"
               placeholder="E-mail"
               required
-              {...(params.has('email') ? { defaultValue: params.get('email') } : { autoFocus: true })}
+              defaultValue={query?.email ? query.email : ''}
             />
           </div>
           <div className="auth-form-row">
@@ -64,7 +65,7 @@ const Login = () => {
               id="password"
               placeholder="Password"
               required
-              {...(params.has('email') ? { autoFocus: true } : {})}
+              {...(query?.email ? { autoFocus: true } : {})}
             />
           </div>
           <div className={`auth-form-submit ${loading ? 'disabled' : ''}`}>

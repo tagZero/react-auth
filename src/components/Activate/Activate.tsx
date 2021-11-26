@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
 import useQuery from '../../hooks/useQuery';
+import { useCaptcha } from '../CaptchaProvider/CaptchaProvider';
 
 const Activate = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -9,11 +10,21 @@ const Activate = () => {
   const { token }: any = useQuery();
   const context = useAuth();
   const { activate, modules, getModulePath, options, notify } = context;
+  const { incrementFailureCount, getCaptchaToken } = useCaptcha();
 
   const tryActivation = async () => {
     setLoading(true);
     try {
-      await activate({ token }, context);
+      const props: any = {
+        token
+      };
+
+      const captchaToken = await getCaptchaToken();
+      if (captchaToken) {
+        props.captchaToken = captchaToken;
+      }
+
+      await activate(props, context);
       modules.activate.successMessage &&
         notify({ type: 'success', message: modules.activate.successMessage });
       history.push(getModulePath('login'));
@@ -21,6 +32,7 @@ const Activate = () => {
       notify({ type: 'error', message: err });
     } finally {
       setLoading(false);
+      incrementFailureCount();
     }
   };
 

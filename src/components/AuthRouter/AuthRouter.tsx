@@ -42,7 +42,11 @@ const AuthRouter = () => {
         return <ChangePassword />;
       }
       case 'activate': {
-        return <Activate />;
+        return (
+          <CaptchaProvider options={captchaOptions}>
+            <Activate />
+          </CaptchaProvider>
+        );
       }
       // no default
     }

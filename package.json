@@ -1,6 +1,6 @@
 {
   "name": "@tag0/react-auth",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "description": "Customizable AuthService/AuthProvider and components for react",
   "repository": {
     "type": "git",

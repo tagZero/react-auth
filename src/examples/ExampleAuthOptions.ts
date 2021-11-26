@@ -17,7 +17,9 @@ export default {
     await Promise.resolve();
   },
   register: async ({ firstName, lastName, birthDate, email, password }, authContext) => {
-    await Promise.resolve();
+    return new Promise((resolve, reject) => {
+      setTimeout(() => resolve(true), 2000);
+    });
   },
   resetPassword: async ({ email }, authContext) => {
     return new Promise((resolve, reject) => {
