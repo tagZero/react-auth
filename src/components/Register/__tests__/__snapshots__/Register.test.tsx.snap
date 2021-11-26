@@ -75,7 +75,7 @@ exports[`Register renders properly 1`] = `
             pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\\\\d)(?=.*[!@#$%&*?])[A-Za-z\\\\d!@#$%&*?]{8,}"
             placeholder="Password"
             required=""
-            title="Please note that the passwords must be at least 8 characters long and contain at least one number, one special character (!@#$%&*?), one capital and one lowercase letter."
+            title="Passwords must be at least 8 characters long and it should contain at least 1 capital letter, 1 lowercase letter, 1 number and 1 special character (!@#$%&*?)"
             type="password"
           />
         </div>

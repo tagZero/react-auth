@@ -31,7 +31,7 @@ const Login = () => {
       modules.login.successMessage && notify({ type: 'success', message: modules.login.successMessage });
     } catch (err) {
       incrementFailureCount();
-      notify({ type: 'error', message: err });
+      notify({ type: 'error', message: modules.login.failureMessage });
     } finally {
       setLoading(false);
     }

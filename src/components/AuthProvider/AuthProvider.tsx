@@ -35,6 +35,8 @@ const AuthProvider = ({
       title: 'Login',
       text: 'Sign in',
       description: 'Please provide your credentials below to login',
+      failureMessage:
+        'Login failed. Please check your credentials and make sure that activated your account.',
       ...authModules?.login
     },
     register: {
