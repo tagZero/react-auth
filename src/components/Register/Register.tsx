@@ -23,13 +23,13 @@ const Register = () => {
 
     try {
       await register(props, context);
+      setLoading(false);
       modules.register.successMessage &&
         notify({ type: 'success', message: modules.register.successMessage });
       history.push(`${getModulePath('login')}?email=${encodeURIComponent(props.email)}`);
     } catch (err) {
-      notify({ type: 'error', message: err });
-    } finally {
       setLoading(false);
+      notify({ type: 'error', message: err });
     }
   };
 
