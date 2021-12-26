@@ -11,7 +11,7 @@ const useQuery = () => {
         .split('&')
         .reduce((acc, kv) => {
           const [key, value] = kv.split('=');
-          acc[key] = value;
+          acc[key] = decodeURIComponent(value);
           return acc;
         }, {}),
     [search]
