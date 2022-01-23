@@ -80,9 +80,13 @@ const Register = () => {
             <div className="auth-form-tac">
               <label>
                 <input type="checkbox" name="tac" id="tac" required />
-                {registerOptions.termsAndConditions}&nbsp;
+                {registerOptions.termsAndConditions}{' '}
                 <a href={registerOptions.termsAndConditionsLink} target="_blank" rel="noreferrer">
                   {registerOptions.termsAndConditionsLinkText}
+                </a>
+                {' and the '}
+                <a href={registerOptions.privacyPolicyLink} target="_blank" rel="noreferrer">
+                  {registerOptions.privacyPolicyLinkText}
                 </a>
               </label>
             </div>
