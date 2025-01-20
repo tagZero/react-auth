@@ -89,13 +89,21 @@ exports[`Register renders properly 1`] = `
               required=""
               type="checkbox"
             />
-            I agree to all the 
+            I agree to the 
             <a
-              href="/tac"
+              href="/terms-and-conditions"
               rel="noreferrer"
               target="_blank"
             >
-              terms and conditions
+              Terms & Conditions
+            </a>
+             and the 
+            <a
+              href="/privacy-policy"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Privacy Policy
             </a>
           </label>
         </div>
