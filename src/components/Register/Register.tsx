@@ -35,10 +35,6 @@ const Register = () => {
     }
   };
 
-  useEffect(() => {
-    console.log(options);
-  }, [options]);
-
   return (
     <main className="auth-container">
       <div className="auth-logo" style={{ backgroundImage: `url(${options.logoUrl}` }} />
