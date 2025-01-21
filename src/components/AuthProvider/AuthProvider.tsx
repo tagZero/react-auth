@@ -26,7 +26,8 @@ const AuthProvider = ({
   const [options, setOptions] = useState({
     ...authOptions,
     authRoute: authOptions?.authRoute || '/auth',
-    authenticatedRoute: authOptions?.authenticatedRoute || '/user'
+    authenticatedRoute: authOptions?.authenticatedRoute || '/user',
+    passwordAgain: authOptions?.passwordAgain ? authOptions?.passwordAgain : false
   });
   const [modules, setModules] = useState({
     ...authModules,
@@ -88,9 +89,7 @@ const AuthProvider = ({
     }
   }, []);
 
-  const isAuthenticated = (): boolean => {
-    return !!token;
-  };
+  const isAuthenticated = (): boolean => !!token;
 
   const getModulePath = (module: string) => {
     if (options.authRoute === '/') {

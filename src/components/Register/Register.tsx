@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../AuthProvider/AuthProvider';
 import { RegisterPropsType } from '../AuthProvider/AuthProvider.type';
@@ -7,6 +7,8 @@ const Register = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const history = useHistory();
   const context = useAuth();
+  const inputRef = useRef(null);
+  const [password, setPassword] = useState<string>('');
   const { register, modules, getModulePath, options, notify } = context;
   const { register: registerOptions } = modules;
   const { title, description, passwordPattern, passwordPatternMessage } = registerOptions;
@@ -32,6 +34,10 @@ const Register = () => {
       notify({ type: 'error', message: err });
     }
   };
+
+  useEffect(() => {
+    console.log(options);
+  }, [options]);
 
   return (
     <main className="auth-container">
@@ -74,8 +80,30 @@ const Register = () => {
               title={passwordPatternMessage}
               required
               pattern={passwordPattern}
+              onChange={(event) => setPassword(event.target.value)}
             />
           </div>
+          {options.passwordAgain ? (
+            <div className="auth-form-row">
+              <input
+                type="password"
+                name="passwordAgain"
+                id="passwordAgain"
+                placeholder="PasswordAgain"
+                title={passwordPatternMessage}
+                required
+                ref={inputRef}
+                onChange={(event) => {
+                  if (event.target.value !== password) {
+                    inputRef.current.setCustomValidity("Password verification doesn't match");
+                  } else {
+                    inputRef.current.setCustomValidity('');
+                  }
+                  inputRef.current.reportValidity();
+                }}
+              />
+            </div>
+          ) : null}
           {registerOptions.termsAndConditions ? (
             <div className="auth-form-tac">
               <label>

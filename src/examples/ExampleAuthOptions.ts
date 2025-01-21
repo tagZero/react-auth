@@ -3,7 +3,8 @@ export default {
     securedRoute: '/user',
     authRoute: '/auth',
     logoUrl: 'https://unpkg.com/@tag0/react-auth/dist/assets/images/logo.svg',
-    logoTitle: 'ReactAuth'
+    logoTitle: 'ReactAuth',
+    passwordAgain: false
   },
   login: async ({ email, password }, authContext) => {
     if (email === 'foo@bar.com' && password) {
