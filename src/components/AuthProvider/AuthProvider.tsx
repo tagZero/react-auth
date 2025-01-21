@@ -27,7 +27,7 @@ const AuthProvider = ({
     ...authOptions,
     authRoute: authOptions?.authRoute || '/auth',
     authenticatedRoute: authOptions?.authenticatedRoute || '/user',
-    passwordAgain: authOptions?.passwordAgain ? authOptions?.passwordAgain : false
+    passwordAgain: authOptions?.passwordAgain ? authOptions?.passwordAgain : true
   });
   const [modules, setModules] = useState({
     ...authModules,

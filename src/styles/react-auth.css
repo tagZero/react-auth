@@ -82,6 +82,18 @@
   margin: 10px 0;
 }
 
+.input-toggle-password {
+  background: transparent;
+  border: none;
+  height: 36px;
+  line-height: 1px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  width: 36px;
+}
+
 .auth-form-row,
 .auth-form-submit {
   display: flex;

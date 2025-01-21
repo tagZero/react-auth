@@ -68,12 +68,51 @@ exports[`Register renders properly 1`] = `
         </div>
         <div
           class="auth-form-row"
+          style="position: relative;"
         >
           <input
             id="password"
             name="password"
             pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\\\\d)(?=.*[!@#$%&*?])[A-Za-z\\\\d!@#$%&*?]{8,}"
             placeholder="Password"
+            required=""
+            title="Passwords must be at least 8 characters long and it should contain at least 1 capital letter, 1 lowercase letter, 1 number and 1 special character (!@#$%&*?)"
+            type="password"
+          />
+          <button
+            class="input-toggle-password"
+            id="togglePassword"
+            type="submit"
+          >
+            <svg
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="3"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="auth-form-row"
+        >
+          <input
+            id="passwordAgain"
+            name="passwordAgain"
+            placeholder="PasswordAgain"
             required=""
             title="Passwords must be at least 8 characters long and it should contain at least 1 capital letter, 1 lowercase letter, 1 number and 1 special character (!@#$%&*?)"
             type="password"

@@ -9,6 +9,7 @@ const Register = () => {
   const context = useAuth();
   const inputRef = useRef(null);
   const [password, setPassword] = useState<string>('');
+  const [showingPassword, setShowingPassword] = useState(false);
   const { register, modules, getModulePath, options, notify } = context;
   const { register: registerOptions } = modules;
   const { title, description, passwordPattern, passwordPatternMessage } = registerOptions;
@@ -67,9 +68,9 @@ const Register = () => {
           <div className="auth-form-row">
             <input type="email" name="email" id="email" placeholder="E-mail" required />
           </div>
-          <div className="auth-form-row">
+          <div className="auth-form-row" style={{ position: 'relative' }}>
             <input
-              type="password"
+              type={showingPassword ? 'text' : 'password'}
               name="password"
               id="password"
               placeholder="Password"
@@ -78,6 +79,48 @@ const Register = () => {
               pattern={passwordPattern}
               onChange={(event) => setPassword(event.target.value)}
             />
+            <button
+              id="togglePassword"
+              className="input-toggle-password"
+              type="submit"
+              onClick={(event) => {
+                event.preventDefault();
+                setShowingPassword(!showingPassword);
+              }}
+            >
+              {showingPassword ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a18.37 18.37 0 0 1 3.22-4.94" />
+                  <path d="M1 1l22 22" />
+                  <path d="M9.88 9.88A3 3 0 0 0 12 15a3 3 0 0 0 2.12-.88M20.12 14.12A10.94 10.94 0 0 0 23 12s-4-8-11-8a10.94 10.94 0 0 0-4.17.83" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              )}
+            </button>
           </div>
           {options.passwordAgain ? (
             <div className="auth-form-row">
